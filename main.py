@@ -1,6 +1,8 @@
 import socket
 import sys
+import pandas as pd
 import threading
+from Query_Processor.classes.query_processor import QueryProcessor
 
 
 def handle_client(conn, addr):
@@ -11,7 +13,9 @@ def handle_client(conn, addr):
             if not data:
                 break
             print(f"Received from {addr}: {data}")
-            response = f"Processed: {data}"
+            processor = QueryProcessor()
+            data = processor.execute_query(data).data
+            response = f"{data}"
             conn.send(response.encode())
     except Exception as e:
         print(f"Error with {addr}: {e}")
@@ -37,6 +41,19 @@ def start_server(port):
         server_socket.close()
 
 
+def receive_full_message(client_socket):
+    """Receive the full message from the server"""
+    full_message = ""
+    while True:
+        chunk = client_socket.recv(1024).decode()
+        full_message += chunk
+
+        if len(chunk) < 1024:
+            break
+
+    return full_message
+
+
 def start_client(port):
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
@@ -47,13 +64,39 @@ def start_client(port):
             message = input("Informixika# ")
             if message.lower() == "exit":
                 break
+
             client_socket.send(message.encode())
-            response = client_socket.recv(1024).decode()
-            print(f"{response}")
+            try:
+                response = receive_full_message(client_socket)
+
+                if not response.strip():
+                    print("No data received from server.")
+                    continue
+
+                try:
+                    import ast
+
+                    data = ast.literal_eval(response)
+                    df = pd.DataFrame(data)
+
+                    print(df.to_string(index=False))
+
+                except (ValueError, SyntaxError) as parse_error:
+                    print(f"Error parsing server response: {parse_error}")
+                    print(f"Received response: {response}")
+
+            except Exception as receive_error:
+                print(f"Error receiving message: {receive_error}")
+
+    except ConnectionRefusedError:
+        print(f"Could not connect to server on port {port}. Is the server running?")
+    except socket.error as socket_error:
+        print(f"Socket error: {socket_error}")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Unexpected error: {e}")
     finally:
         client_socket.close()
+        print("Connection closed.")
 
 
 def main():
