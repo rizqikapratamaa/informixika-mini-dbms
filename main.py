@@ -13,10 +13,15 @@ def handle_client(conn, addr):
             if not data:
                 break
             print(f"Received from {addr}: {data}")
-            processor = QueryProcessor()
-            data = processor.execute_query(data).data
-            response = f"{data}"
-            conn.send(response.encode())
+
+            try:
+                processor = QueryProcessor()
+                data = processor.execute_query(data).data
+                response = f"{data}"
+
+                conn.send(response.encode())
+            except Exception as e:
+                conn.send(str(e).encode())
     except Exception as e:
         print(f"Error with {addr}: {e}")
     finally:
@@ -54,6 +59,30 @@ def receive_full_message(client_socket):
     return full_message
 
 
+def format_table(data):
+    if not data:
+        return "No data to display"
+
+    columns = list(data[0].keys())
+
+    col_widths = {
+        col: max(len(str(col)), max(len(str(row.get(col, ""))) for row in data))
+        for col in columns
+    }
+
+    header = " | ".join(col.ljust(col_widths[col]) for col in columns)
+    separator = "-" * len(header)
+
+    formatted_rows = []
+    for row in data:
+        formatted_row = " | ".join(
+            str(row.get(col, "")).ljust(col_widths[col]) for col in columns
+        )
+        formatted_rows.append(formatted_row)
+
+    return "\n".join([header, separator] + formatted_rows)
+
+
 def start_client(port):
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
@@ -77,9 +106,8 @@ def start_client(port):
                     import ast
 
                     data = ast.literal_eval(response)
-                    df = pd.DataFrame(data)
 
-                    print(df.to_string(index=False))
+                    print(format_table(data))
 
                 except (ValueError, SyntaxError) as parse_error:
                     print(f"Error parsing server response: {parse_error}")
