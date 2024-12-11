@@ -2,7 +2,8 @@ import socket
 import sys
 import json
 import threading
-from Query_Processor.classes.query_processor import QueryProcessor, ExecutionResult
+from Query_Processor.classes.query_processor import QueryProcessor
+from Query_Processor.classes.execution_result import ExecutionResult
 from dataclasses import is_dataclass, asdict
 
 
