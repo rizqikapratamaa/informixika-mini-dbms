@@ -1,8 +1,29 @@
 import socket
 import sys
-import pandas as pd
+import json
 import threading
-from Query_Processor.classes.query_processor import QueryProcessor
+from Query_Processor.classes.query_processor import QueryProcessor, ExecutionResult
+from Storage_Manager.classes.rows import Rows
+from dataclasses import is_dataclass, asdict
+
+
+def custom_json_serializer(obj):
+    if is_dataclass(obj):
+        return asdict(obj)
+
+    if hasattr(obj, "to_dict"):
+        return obj.to_dict()
+
+    if hasattr(obj, "__dict__"):
+        return obj.__dict__
+
+    if hasattr(obj, "isoformat"):
+        return obj.isoformat()
+
+    try:
+        return str(obj)
+    except Exception:
+        raise TypeError(f"Object of type {type(obj)} is not JSON serializable")
 
 
 def handle_client(conn, addr):
@@ -16,10 +37,11 @@ def handle_client(conn, addr):
 
             try:
                 processor = QueryProcessor()
-                data = processor.execute_query(data).data
-                response = f"{data}"
+                data: list[ExecutionResult] = processor.execute_query(data)
+                for result in data:
+                    response = json.dumps(result, default=custom_json_serializer)
+                    conn.send(response.encode())
 
-                conn.send(response.encode())
             except Exception as e:
                 conn.send(str(e).encode())
     except Exception as e:
@@ -83,6 +105,15 @@ def format_table(data):
     return "\n".join([header, separator] + formatted_rows)
 
 
+def reconstruct_execution_results(item):
+    if "data" in item and item["data"]:
+        item["data"] = Rows(
+            data=item["data"]["data"], rows_count=item["data"]["rows_count"]
+        )
+
+    return ExecutionResult(**item)
+
+
 def start_client(port):
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
@@ -103,11 +134,12 @@ def start_client(port):
                     continue
 
                 try:
-                    import ast
+                    data = json.loads(response)
+                    execution_results = reconstruct_execution_results(data)
 
-                    data = ast.literal_eval(response)
-
-                    print(format_table(data))
+                    if execution_results.data:
+                        print(format_table(execution_results.data.data))
+                        print(f"Rows: {execution_results.data.rows_count}")
 
                 except (ValueError, SyntaxError) as parse_error:
                     print(f"Error parsing server response: {parse_error}")
