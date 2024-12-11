@@ -5,7 +5,7 @@ import threading
 from Query_Processor.classes.query_processor import QueryProcessor
 from Query_Processor.classes.execution_result import ExecutionResult
 from dataclasses import is_dataclass, asdict
-
+from Failure_Recovery_Manager.classes.failure_recovery_manager import Failure_recovery_manager
 
 def custom_json_serializer(obj):
     if is_dataclass(obj):
@@ -65,6 +65,7 @@ def start_server(port):
     except KeyboardInterrupt:
         print("Shutting down server...")
     finally:
+        Failure_recovery_manager.enable().exit_routine()
         server_socket.close()
 
 
