@@ -59,11 +59,19 @@ def start_client(port):
                     print("No data received from server.")
                     continue
 
+                if response == "none":
+                    continue
+
                 try:
                     data = json.loads(response)
 
+                    if "message" in data:
+                        print(data["message"])
+                        print()
+
                     if "data" in data and data["data"]:
                         print(format_table(data["data"]["data"]))
+                        print()
                         print(f"Rows: {data['data']['rows_count']}")
 
                 except (ValueError, SyntaxError) as parse_error:

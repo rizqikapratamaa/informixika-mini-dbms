@@ -32,6 +32,7 @@ def custom_json_serializer(obj):
 
 def handle_client(conn, addr):
     log_socket(f"Connected to {addr}")
+    processor = QueryProcessor()
     try:
         while True:
             data = conn.recv(1024).decode()
@@ -40,11 +41,14 @@ def handle_client(conn, addr):
             log_socket(f"Received from {addr}: {data}")
 
             try:
-                processor = QueryProcessor()
                 data: list[ExecutionResult] = processor.execute_query(data)
-                for result in data:
-                    response = json.dumps(result, default=custom_json_serializer)
-                    conn.send(response.encode())
+
+                if data is not None:
+                    for result in data:
+                        response = json.dumps(result, default=custom_json_serializer)
+                        conn.send(response.encode())
+                else:
+                    conn.send("none".encode())
 
             except Exception as e:
                 conn.send(str(e).encode())
