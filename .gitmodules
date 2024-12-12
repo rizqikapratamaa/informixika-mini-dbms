@@ -1,15 +1,20 @@
 [submodule "Concurrency_Control_Manager"]
 	path = Concurrency_Control_Manager
-	url = https://gitlab.informatika.org/mega-project-if3140-informixika/concurrency-control-manager.git
+    url = https://gitlab.informatika.org/mega-project-if3140-informixika/concurrency-control-manager.git
+    branch = integration
 [submodule "Query_Processor"]
 	path = Query_Processor
 	url = https://gitlab.informatika.org/mega-project-if3140-informixika/query-processor.git
+    branch = integration
 [submodule "Query_Optimizer"]
 	path = Query_Optimizer
 	url = https://gitlab.informatika.org/mega-project-if3140-informixika/query-optimizer.git
+    branch = integration
 [submodule "Failure_Recovery_Manager"]
 	path = Failure_Recovery_Manager
 	url = https://gitlab.informatika.org/mega-project-if3140-informixika/failure-recovery-manager.git
+    branch = integration
 [submodule "Storage_Manager"]
 	path = Storage_Manager
 	url = https://gitlab.informatika.org/mega-project-if3140-informixika/storage-manager.git
+    branch = integration
