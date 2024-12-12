@@ -1,17 +1,85 @@
-# Mega Project Database Management System Informixika
+# Mega Project Database Management System - Informixika
 
-<!--toc:start-->
+## 🧾 Application Description
 
-- [Mega Project Database Management System Informixika](#mega-project-database-management-system-informixika)
-  - [How to run](#how-to-run)
-  <!--toc:end-->
+Informixika is a mini relational Database Management System (DBMS) that uses SQL language. It is designed to perform secure transactions by implementing the following components:
 
-## How to run
+- **Query Processor**
+- **Query Optimizer**
+- **Transaction Manager**
+- **Storage Engine**
+- **Failure Recovery Manager**
 
-1. Run the server and client (make sure to run the server before the client)
+---
 
-```bash
-python3 main.py <client|server> <port>
-```
+## 🧰 Requirements
 
-2. To exit client do: exit, to kill server: ctrl + C
+- [Python3](https://www.python.org/)
+
+---
+
+## 🏃 How to Run the Application
+
+Follow these steps to set up and run the application:
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://gitlab.informatika.org/mega-project-if3140-informixika/integration.git
+   ```
+
+2. **Navigate to the Root Directory:**
+
+   ```bash
+   cd integration
+   ```
+
+3. **Run the Submodule Script:**
+
+   **For Windows**
+   ```bash
+   clone.bat
+   ```
+
+   **For Unix/Linux**
+   ```bash
+   clone.sh
+   ```
+
+4. **Open Two Terminals**
+
+5. **Run the DBMS Server:**
+
+   ```bash
+   python3 server.py <port>
+   ```
+
+6. **Run the DBMS Client:**
+
+   ```bash
+   python3 client.py <port>
+   ```
+
+---
+
+## 📚 Program Documentation
+
+Detailed documentation is available [here](https://docs.google.com/document/d/1mpg0wISclZ-qarDSaCn6r-xRneD6iR3OA7b5mAPzGNU/edit?tab=t.0).
+
+## 📝 Program Specifications
+
+Comprehensive specifications can be found [here](https://docs.google.com/document/d/13r_73FjbJ5E7ILmQmV1XGh2dQhYuXfMp6il-OTqysqk/edit?tab=t.0).
+
+---
+
+## 👥 Contributors
+
+| Feature                 | Contributors                                                                                      |
+|-------------------------|---------------------------------------------------------------------------------------------------|
+| **Query Processor**     | [13522122](https://gitlab.informatika.org/maulvizm), [13522123](https://gitlab.informatika.org/jimlynurarif), [13522128](https://gitlab.informatika.org/Andhikafdh), [13522134](https://gitlab.informatika.org/Maharanish) |
+| **Query Optimizer**     | [13522121](https://gitlab.informatika.org/JonathanSaragih), [13522145](https://gitlab.informatika.org/fnathas), [13522146](https://gitlab.informatika.org/mzaidansr), [13522152](https://gitlab.informatika.org/mroihn), [13522156](https://gitlab.informatika.org/JasonFernando) |
+| **Transaction Manager** | [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/) |
+| **Storage Engine**      | [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/) |
+| **Failure Recovery**    | [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/) |
+
+---
