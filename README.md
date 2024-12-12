@@ -46,6 +46,12 @@ Follow these steps to set up and run the application:
    clone.sh
    ```
 
+   **Alternative for any OS**
+   ```
+   git submodule init
+   git submodule update --init --recursive
+   ```
+
 4. **Open Two Terminals**
 
 5. **Run the DBMS Server:**
