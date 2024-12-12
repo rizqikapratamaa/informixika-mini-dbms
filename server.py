@@ -44,9 +44,9 @@ def handle_client(conn, addr):
                 data: list[ExecutionResult] = processor.execute_query(data)
 
                 if data is not None:
-                    for result in data:
-                        response = json.dumps(result, default=custom_json_serializer)
-                        conn.send(response.encode())
+                    response = json.dumps(data, default=custom_json_serializer)
+                    conn.send(response.encode())
+
                 else:
                     conn.send("none".encode())
 

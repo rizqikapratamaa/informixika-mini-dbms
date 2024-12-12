@@ -1,19 +1,7 @@
 import socket
 import sys
 import json
-
-
-def receive_full_message(client_socket):
-    """Receive the full message from the server"""
-    full_message = ""
-    while True:
-        chunk = client_socket.recv(1024).decode()
-        full_message += chunk
-
-        if len(chunk) < 1024:
-            break
-
-    return full_message
+import os
 
 
 def format_table(data):
@@ -40,6 +28,19 @@ def format_table(data):
     return "\n".join([header, separator] + formatted_rows)
 
 
+def receive_full_message(client_socket):
+    """Receive the full message from the server"""
+    full_message = ""
+    while True:
+        chunk = client_socket.recv(1024).decode()
+        full_message += chunk
+
+        if len(chunk) < 1024:
+            break
+
+    return full_message
+
+
 def start_client(port):
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
@@ -50,6 +51,10 @@ def start_client(port):
             message = input("Informixika# ")
             if message.lower() == "exit":
                 break
+
+            if message.lower() == "clear":
+                os.system("clear")
+                continue
 
             client_socket.send(message.encode())
             try:
@@ -63,16 +68,17 @@ def start_client(port):
                     continue
 
                 try:
-                    data = json.loads(response)
+                    data_array = json.loads(response)
 
-                    if "message" in data:
-                        print(data["message"])
-                        print()
+                    for data in data_array:
+                        if "message" in data:
+                            print(data["message"])
+                            print()
 
-                    if "data" in data and data["data"]:
-                        print(format_table(data["data"]["data"]))
-                        print()
-                        print(f"Rows: {data['data']['rows_count']}")
+                        if "data" in data and data["data"]:
+                            print(format_table(data["data"]["data"]))
+                            print()
+                            print(f"Rows: {data['data']['rows_count']}")
 
                 except (ValueError, SyntaxError) as parse_error:
                     print(f"Error parsing server response: {parse_error}")
