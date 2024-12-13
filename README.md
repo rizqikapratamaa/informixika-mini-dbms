@@ -84,8 +84,8 @@ Comprehensive specifications can be found [here](https://docs.google.com/documen
 |-------------------------|---------------------------------------------------------------------------------------------------|
 | **Query Processor**     | [13522122](https://gitlab.informatika.org/maulvizm), [13522123](https://gitlab.informatika.org/jimlynurarif), [13522128](https://gitlab.informatika.org/Andhikafdh), [13522134](https://gitlab.informatika.org/Maharanish) |
 | **Query Optimizer**     | [13522121](https://gitlab.informatika.org/JonathanSaragih), [13522145](https://gitlab.informatika.org/fnathas), [13522146](https://gitlab.informatika.org/mzaidansr), [13522152](https://gitlab.informatika.org/mroihn), [13522156](https://gitlab.informatika.org/JasonFernando) |
-| **Transaction Manager** | [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/) |
-| **Storage Engine**      | [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/) |
-| **Failure Recovery**    | [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/), [13522xxx](https://gitlab.informatika.org/) |
+| **Transaction Manager** | [13522150](https://gitlab.informatika.org/), [13522151](https://gitlab.informatika.org/), [13522158](https://gitlab.informatika.org/), [13522159](https://gitlab.informatika.org/) |
+| **Storage Engine**      | [13522126](https://gitlab.informatika.org/), [13522136](https://gitlab.informatika.org/), [13522149](https://gitlab.informatika.org/), [13522149](https://gitlab.informatika.org/) |
+| **Failure Recovery**    | [13522130](https://gitlab.informatika.org/Muneki96), [13522138](https://gitlab.informatika.org/MelonSeed), [13522160](https://gitlab.informatika.org/Rinnearu), [13522163](https://gitlab.informatika.org/AtqiyaHaydar) |
 
 ---
