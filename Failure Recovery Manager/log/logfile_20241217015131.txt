@@ -1,0 +1,11 @@
+{"transaction_id": 1, "action": 0, "timestamp": "2024-12-17 01:51:31", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 1 started"}
+{"transaction_id": 2, "action": 0, "timestamp": "2024-12-17 01:51:37", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 2 started"}
+{"transaction_id": 2, "action": 2, "timestamp": "2024-12-17 01:51:37", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 2 committed"}
+{"transaction_id": 3, "action": 0, "timestamp": "2024-12-17 01:52:04", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 3 started"}
+{"transaction_id": 3, "action": 2, "timestamp": "2024-12-17 01:52:04", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 3 committed"}
+{"transaction_id": 4, "action": 0, "timestamp": "2024-12-17 01:56:59", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 4 started"}
+{"transaction_id": 4, "action": 2, "timestamp": "2024-12-17 01:56:59", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 4 committed"}
+{"transaction_id": 5, "action": 0, "timestamp": "2024-12-17 01:57:23", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 5 started"}
+{"transaction_id": 5, "action": 2, "timestamp": "2024-12-17 01:57:23", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 5 committed"}
+{"transaction_id": 6, "action": 0, "timestamp": "2024-12-17 01:57:25", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 6 started"}
+{"transaction_id": 6, "action": 2, "timestamp": "2024-12-17 01:57:25", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 6 committed"}

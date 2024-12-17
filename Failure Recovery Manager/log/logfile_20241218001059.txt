@@ -1,0 +1,2 @@
+{"transaction_id": 1, "action": 0, "timestamp": "2024-12-18 00:10:59", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 1 started"}
+{"transaction_id": 1, "action": 2, "timestamp": "2024-12-18 00:10:59", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 1 committed"}

@@ -1,0 +1,14 @@
+{"transaction_id": 1, "action": 0, "timestamp": "2024-12-13 13:54:24", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 1 started"}
+{"transaction_id": 1, "action": 2, "timestamp": "2024-12-13 13:54:24", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 1 committed"}
+{"transaction_id": 2, "action": 0, "timestamp": "2024-12-13 13:54:41", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 2 started"}
+{"transaction_id": 2, "action": 2, "timestamp": "2024-12-13 13:54:41", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 2 committed"}
+{"transaction_id": 3, "action": 0, "timestamp": "2024-12-13 13:54:56", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 3 started"}
+{"transaction_id": 3, "action": 2, "timestamp": "2024-12-13 13:54:56", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 3 committed"}
+{"transaction_id": 4, "action": 0, "timestamp": "2024-12-13 13:55:40", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 4 started"}
+{"transaction_id": 4, "action": 2, "timestamp": "2024-12-13 13:55:40", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 4 committed"}
+{"transaction_id": 5, "action": 0, "timestamp": "2024-12-13 13:55:44", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 5 started"}
+{"transaction_id": 5, "action": 2, "timestamp": "2024-12-13 13:55:44", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 5 committed"}
+{"transaction_id": 6, "action": 0, "timestamp": "2024-12-13 13:55:56", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 6 started"}
+{"transaction_id": 6, "action": 2, "timestamp": "2024-12-13 13:55:56", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 6 committed"}
+{"transaction_id": 7, "action": 0, "timestamp": "2024-12-13 13:56:02", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 7 started"}
+{"transaction_id": 7, "action": 2, "timestamp": "2024-12-13 13:56:02", "old_data": null, "new_data": null, "table_name": null, "message": "Transaction 7 committed"}

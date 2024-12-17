@@ -1,0 +1,7 @@
+{"transaction_id": 1, "action": 0, "timestamp": "2024-11-21 22:09:13", "old_data": null, "new_data": null, "message": "Transaction 1 started"}
+{"transaction_id": 1, "action": 1, "timestamp": "2024-11-21 22:09:13", "old_data": null, "new_data": {"id": 1, "value": 10}, "message": "Transaction 1 written"}
+{"transaction_id": 1, "action": 1, "timestamp": "2024-11-21 22:09:13", "old_data": null, "new_data": {"id": 2, "value": 20}, "message": "Transaction 1 written"}
+{"transaction_id": 1, "action": 2, "timestamp": "2024-11-21 22:09:13", "old_data": null, "new_data": null, "message": "Transaction 1 committed"}
+{"transaction_id": 2, "action": 0, "timestamp": "2024-11-21 22:09:13", "old_data": null, "new_data": null, "message": "Transaction 2 started"}
+{"transaction_id": 2, "action": 1, "timestamp": "2024-11-21 22:09:13", "old_data": {"id": 1, "value": 10}, "new_data": {"id": 1, "value": 30}, "message": "Transaction 2 written"}
+{"transaction_id": 2, "action": 1, "timestamp": "2024-11-21 22:09:13", "old_data": {"id": 2, "value": 20}, "new_data": {"id": 2, "value": 40}, "message": "Transaction 2 written"}
